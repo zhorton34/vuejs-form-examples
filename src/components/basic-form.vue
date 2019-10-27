@@ -1,11 +1,19 @@
 <template>
   <div>
-    <!-- 1. Add toggleButtonText computed property -->
-    <!-- 2. Replace ternary with toggleButtonText computed property  -->
-    <!-- 3. Replace toggleForm method with show.form = !show.form -->
-    <button @click='toggleForm'>
-      {{ show.form ? 'Hide' : 'Show' }} Form
+    <button @click='show.form = !show.form'>
+      {{ toggleButtonText }}
     </button>
+
+    <!-- 1. add updateMeWhenFormChanges data property -->
+    <!-- 2. add show watcher -->
+    <!-- 3. add deep property to show watcher -->
+    <!-- 4. Try loading page with and without deep property -->
+    <!-- 5. Add immediate property to show watcher -->
+    <!-- 6. Look at example box immedietly when page loads in comparison to when there is no immediate property -->
+    <!-- 7. Move watcher callback to methods, and reference it as a string -->
+    <example-box>
+      {{ updateMeWhenFormChanges }}
+    </example-box>
 
     <form class='form' v-if='show.form'>
       <h1> {{ title }} </h1>
@@ -28,6 +36,7 @@ export default {
 
   data() {
     return {
+      updateMeWhenFormChanges: null, 
       show: {
         form: true
       },
@@ -46,11 +55,18 @@ export default {
       return this.show.form ? 'Hide Form' : 'Show Form'
     }
   },
-
-  methods: {
-    toggleForm() {
-      this.show.form = !this.show.form
+  watch: {
+    show: {
+      // watcher wont initially work because form is nested within show
+      // deep: true,  
+      // watcher wont work on page load unless we set immediate to true
+      // immediate: true,
+      // handler can be defined directly as a callback function, or we can reference one of our component methods
+      // as a string
+      handler(show) {
+        this.updateMeWhenFormChanges = show
+      },
     }
-  },
+  }
 }
 </script>
