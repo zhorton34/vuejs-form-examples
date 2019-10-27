@@ -28,6 +28,18 @@
   display: flex;
   justify-content: center;
 }
+.example-box {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 25vw;
+  height: 200px;
+  z-index: 2;
+  background-color: #d5d5d5;
+  padding: 15px;
+  border-left: 1px solid #0275d8;
+  border-bottom: 1px solid #0275d8;
+}
 form {
   display: flex;
   justify-content: left;

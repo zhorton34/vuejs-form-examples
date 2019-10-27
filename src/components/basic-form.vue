@@ -1,15 +1,24 @@
 <template>
-  <form class='form'> 
-    <h1> {{ title | capitalize }} </h1>
+  <div>
+   <example-box>
+      <!-- 1. Add v-model to input fields to bind component data to the input field value-->
+      <!-- 2. Uncomment following code -->
+      <!-- Name: {{ name }}<br> Email: {{ email }}<br> Phone Number: {{ phone_number }} -->
+    </example-box>
 
-    <input type='text' name='name' placeholder="Name" />
-    <input type='email' name='email' placeholder="Email" />
-    <input type='text' name='phone_number' placeholder="Phone Number"/>
+    <form class='form'> 
+      <h1> {{ title }} </h1>
 
-    <button type='submit'>
-      Save {{ title }}
-    </button>
-  </form>
+      <input type='text' name='name' placeholder="Name" />
+      <input type='email' name='email' placeholder="Email" />
+      <input type='text' name='phone_number' placeholder="Phone Number" />
+
+      <button type='submit'>
+        Save {{ title }}
+      </button>
+    </form>
+
+  </div>
 </template>
 
 <script>
