@@ -1,6 +1,6 @@
 <template>
 	<div class='basic-button'>
-  		<button :style='`background-color: ${color}`'>
+  		<button :style='buttonStyle'>
         	{{ title }}
 		</button>
 	</div>
@@ -23,6 +23,13 @@
 				type: String,
 				default: '#0275d8',
 				required: false,
+			}
+		},
+		computed: {
+			buttonStyle() {
+				return {
+					backgroundColor: this.color,
+				}
 			}
 		},
 	};
