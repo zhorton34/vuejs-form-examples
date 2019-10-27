@@ -57,7 +57,7 @@ form > input {
   padding-left: 20px;
   padding-right: 20px;
 }
-form > button {
+.basic-button > button {
   width: 100%;
   font-weight: bolder;
   text-align: center;

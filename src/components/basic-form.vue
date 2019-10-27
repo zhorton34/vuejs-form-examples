@@ -1,29 +1,24 @@
 <template>
   <div>
-   <example-box>
-      <!-- 1. Add v-model to input fields to bind component data to the input field value-->
-      <!-- 2. Uncomment following code -->
-      <!-- Name: {{ name }}<br> Email: {{ email }}<br> Phone Number: {{ phone_number }} -->
-    </example-box>
-
     <form class='form'> 
       <h1> {{ title }} </h1>
+      <input type='text' name='name' placeholder="Name" v-model='name'/>
+      <input type='email' name='email' placeholder="Email" v-model='email' />
+      <input type='text' name='phone_number' placeholder="Phone Number" v-model='phone_number' />
 
-      <input type='text' name='name' placeholder="Name" />
-      <input type='email' name='email' placeholder="Email" />
-      <input type='text' name='phone_number' placeholder="Phone Number" />
-
-      <button type='submit'>
-        Save {{ title }}
-      </button>
+      <!-- Pass data to child component via props -->
+      <basic-button color='#0275d8' :title="`Save ${title}`" />
     </form>
-
   </div>
 </template>
 
 <script>
+import BasicButton from './basic-button.vue';
+
 export default {
   name: 'basic-form',
+  components: { BasicButton },
+
   data() {
     return {
       title: 'Basic Form',
