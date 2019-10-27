@@ -1,11 +1,15 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-Vue.config.productionTip = false
+/**
+ * Register Global Filters To Vue
+ */
+import './global/filters.js'
 
-import './global/components.js';
-import './global/filters.js';
+/**
+ * Register Global Components To Vue
+ */
+import './global/components.js'
 
-new Vue({
-  render: h => h(App),
-}).$mount('#app')
+// Mount App Component To Dom Where <element id='app'></element>
+new Vue({ render: h => h(App) }).$mount('#app')
