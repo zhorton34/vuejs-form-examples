@@ -1,6 +1,16 @@
 <template>
   <div>
-    <form class='form'> 
+    <!-- 1. add new boolean data property -->
+    <!-- 2. add toggleForm method -->
+    <!-- 3. add v-if='show.form' on form element -->
+    <!-- 4. Add button to trigger toggle form method -->
+<!--     
+    <button @click='toggleForm'>
+      {{ show.form ? 'Hide' : 'Show' }} Form
+    </button>
+ -->
+
+    <form class='form'>
       <h1> {{ title }} </h1>
       <input type='text' name='name' placeholder="Name" v-model='name'/>
       <input type='email' name='email' placeholder="Email" v-model='email' />

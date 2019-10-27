@@ -1,9 +1,5 @@
 <template>
 	<div class='basic-button'>
-		<example-box>
-			Basic Button Title Prop: {{ title }}<br>
-			Basic Button Color Prop: {{ color }}<br>
-		</example-box>
   		<button :style='`background-color: ${color}`'>
         	{{ title }}
 		</button>
