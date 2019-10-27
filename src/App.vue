@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     
-    <basic-form />
+    <button @click='basicForm = !basicForm'>
+      {{ basicForm ? 'Destory' : 'Create' }} Basic Form
+    </button>
+    <basic-form v-if='basicForm' />
 
   </div>
 </template>
@@ -11,6 +14,11 @@
   
   export default {
     name: 'app',
+    data() {
+      return {
+        basicForm: true,
+      }
+    },
     components: {
       BasicForm
     }
@@ -57,18 +65,7 @@ form > input {
   padding-left: 20px;
   padding-right: 20px;
 }
-.basic-button > button {
-  width: 100%;
-  font-weight: bolder;
-  text-align: center;
-  border: 1px solid #d5d5d5;
-  border-radius: 3px;
-  margin-top: 5px;
-  font-size: 25px;
-  padding-left: 20px;
-  background-color: #0275d8;
-  color: #fff;
-}
+
 h1 {
   font-size: 44px;
   text-align: left;
