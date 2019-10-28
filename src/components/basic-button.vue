@@ -1,5 +1,6 @@
 <template>
 	<div class='basic-button'>
+		<!-- 1. Emit event when button is clicked -->
   		<button :style='buttonStyle'>
         	{{ title }}
 		</button>

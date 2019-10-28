@@ -10,9 +10,13 @@
       <input type='email' name='email' placeholder="Email" v-model='email' />
       <input type='text' name='phone_number' placeholder="Phone Number" v-model='phone_number' />
 
-      <!-- 1. Create Save Button That Extends From Basic Button To Remove All props -->
-      <!-- 2. Replace Basic Button with Save Button -->
-      <basic-button color='#0275d8' :title="`Save ${title}`" />
+      <!-- 1. Emit event from basic-button component -->
+      <!-- 2. Trigger callback function when BasicButton emits event -->
+      <!-- GLOBAL EVENT SYSTEM -->
+      <!-- 3. Create Global Vue Event Bus -->
+      <!-- 4. Add Global Vue Event Bus To Vue Prototype -->
+      <!-- 5. Provide Event.fire, Event.listen, Event.listenOnce, Event.off Examples -->
+      <basic-button color='#0275d8' :title="`Save ${title}`"/>
     </form>
   </div>
 </template>
