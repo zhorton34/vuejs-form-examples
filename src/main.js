@@ -1,6 +1,7 @@
+import '@TailwindCSS'
 import Vue from 'vue'
-import App from './App.vue'
+import DashboardView from '@View/dashboard'
 
-Vue.config.productionTip = false
+const project = { render: created => created(DashboardView) }
 
-new Vue({ render: h => h(App) }).$mount('#app')
+new Vue(project).$mount('#app')
