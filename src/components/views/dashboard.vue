@@ -1,5 +1,5 @@
 <template>
-    <div id='virtualdom' v-cloak>
+    <div id='app' v-cloak>
         <div class="flex items-center justify-between flex-wrap shadow-xl mb-6 vue-nav">
             <img height='150' width='150' :src='logo' />
         </div>
