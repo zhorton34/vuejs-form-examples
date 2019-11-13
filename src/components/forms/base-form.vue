@@ -1,17 +1,17 @@
 <template>
     <form class='form'>
         <h1>Base Form</h1>
-        <input v-model='name'
+        <input
             type='text'
             name='name'
             placeholder='Name'
         />
-        <input v-model='city'
+        <input
             type='text'
             name='city'
             placeholder='City Location'
         />
-        <input v-model='email'
+        <input
             type='email'
             name='email'
             placeholder='Email'
@@ -25,12 +25,5 @@
 <script>
     export default {
         name: 'base-form',
-        data() {
-            return {
-                name: null,
-                city: null,
-                email: null,
-            }
-        }
     }
 </script>
