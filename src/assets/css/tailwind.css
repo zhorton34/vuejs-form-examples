@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --transparent: transparent;
+  --black: #22292f;
+  --white: white;
+  --white-50: rgba(255, 255, 255, 0.5);
+  --danger: #e74444;
+  --success: #21b978;
+  --warning: #ffeb3b;
+  --info: #03a9f4;
+  --primary: #4099de;
+  --primary-dark: #297ec0;
+  --primary-70: rgba(64, 153, 222, 0.7);
+  --primary-50: rgba(64, 153, 222, 0.5);
+  --primary-30: rgba(64, 153, 222, 0.3);
+  --primary-10: rgba(64, 153, 222, 0.1);
+  --logo: #252d37;
+  --sidebar-icon: #b3c1d1;
+  --20: #f6fbff;
+  --30: #f4f7fa;
+  --40: #eef1f4;
+  --50: #e3e7eb;
+  --60: #bacad6;
+  --70: #b3b9bf;
+  --80: #7c858e;
+  --90: #3c4b5f;
+  --90-half: rgba(40, 54, 61, 0.5);
+  --warning-light: #fefcbf;
+  --warning-dark: #b7791f;
+  --success-light: #c6f6d5;
+  --success-dark: #38a169;
+  --danger-light: #fed7d7;
+  --danger-dark: #e53e3e;
+  --info-light: #bee3f8;
+  --info-dark: #3182ce;
+}
+[v-cloak] {display: none}
+
+.vue-nav {
+	@apply .shadow-md;
+	background-color:#fff;
+	border-bottom: 1px solid #A3A3A3;
+}
+body {
+	background-color: #f5f5f5;
+}
+.color-vue {
+	color: '#41B882';
+}
+
+.bg-vue {
+	background-color: '#41B882';
+}
+.card {
+  @apply .bg-white .shadow .rounded-lg;
+}
+.form {
+	margin-left: 20%;
+	margin-right: 20%;
+	border-bottom: 0.7px solid #A3A3A3;
+	border-right: 0.7px solid #A1A1A1;
+
+	@apply .p-4 .card .flex .flex-wrap .shadow-lg;
+}
+.form > h1 {
+	color: #666666;
+	font-size: 44px;
+	font-weight: bolder;
+	margin-bottom: 7px;
+}
+.form > input {
+	@apply .border-b .m-auto .block .w-full .mb-6 .pb-1;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 24px;
+	padding: 5px;
+	width: 100vw;
+}
+.form > button {
+	@apply shadow-lg pt-3 pb-3 mt-6 w-full text-white rounded-full;
+	background-color: #3182ce;
+	font-size: 24px;
+	color: #fff;
+}
