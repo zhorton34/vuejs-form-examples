@@ -2,6 +2,9 @@
 const path = require('path')
 
 module.exports = {
+	devServer: {
+		host: 'vue.sanctum.local'
+	},
 	configureWebpack: {
 		resolve: {
 			alias: {
