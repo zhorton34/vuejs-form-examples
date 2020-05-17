@@ -1,6 +1,6 @@
 <template>
     <div class="live-editor mt-10">
-        <h1 class="ml-6 mb-4 mt-4 text-2xl">Live Editor (Semi-colons required)</h1>
+        <h1 class="ml-6 mb-4 mt-4 text-2xl">Live Form Editor</h1>
 
         <div class="flex flex-wrap">
             <textarea ref='code' :class="typing ? 'typeme cursor' : ''" class='w-full' rows="2" v-model="expression">{{ expression }}</textarea>
@@ -15,37 +15,30 @@
     export default {
     	data: () => ({ expression: '', output: '', typing: true }),
         mounted() {
-    		window.$editor = this;
-
-			let delay = 2;
-			let code = Array.from($editor.$parent.$parent.showing.code);
-			let humanized = () => {
-				let speed = [155, 350];
+            let delay = 2;
+			const speed = [250, 350];
+			let humanize = () => {
 				let [min, max] = speed;
+
 				return parseInt(Math.floor(Math.random()*(min, max) + min));
 			};
-			let autotype = character => { this.expression = `${this.expression}${code[character]}`; };
 
-			for (let loop = 0; loop < code.length; loop++) {
+    		let code = Array.of(this.$parent.$parent.showing.code);
 
-				setTimeout(autotype, humanized, loop);
+			let loop = 0;
+
+			while (loop < code.length)
+            {
+            	window.setTimeout(char => {
+            		this.expression = `${this.expression}${code[char]}`;
+				}, humanize(), loop);
+
+				loop = loop + 1;
 			}
 
 			this.$nextTick(() => this.typing = false);
         },
         methods: {
-    		typeInDefaultExample() {
-    			let character = 0;
-				let example = this.$parent.$parent.showing.code;
-    			while(character <= example.length)
-                {
-                	this.expression[character] = example[character];
-
-                    character++;
-                }
-
-                this.run();
-            },
     		run() {
     			let code = this.expression.replace(/form./g, 'this.form.');
     			let endsWithSemicolon = code[code.length -1] === ';';

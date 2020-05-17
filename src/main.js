@@ -1,12 +1,8 @@
 import '@TailwindCSS'
 import Vue from 'vue'
 import DashboardView from '@View/dashboard'
+import LiveEditor from '@Api/support/live-editor.vue';
 
-const project = { render: created => created(DashboardView) };
-
-import LiveEditor from '@Form/live-editor';
-
-Vue.component('live-editor', LiveEditor);
 Vue.mixin({
 	computed: {
 		title: $this => $this.$options.name
@@ -17,6 +13,11 @@ Vue.mixin({
 			.join(' ')
 	}
 });
+
+Vue.component('live-editor', LiveEditor);
+
+const project = { render: created => created(DashboardView) };
+
 
 new Vue(project).$mount('#app');
 

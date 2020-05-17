@@ -11,7 +11,7 @@ module.exports = {
 				'@TailwindCSS': path.resolve(__dirname, 'src/assets/css/tailwind.css'),
 				'@View': path.resolve(__dirname, 'src/components/views/'),
 				'@Auth': path.resolve(__dirname, 'src/components/auth/'),
-				'@Form': path.resolve(__dirname, 'src/components/forms/'),
+				'@Api': path.resolve(__dirname, 'src/components/api/'),
 				'@Field': path.resolve(__dirname, 'src/components/fields/'),
 				'@Button': path.resolve(__dirname, 'src/components/buttons/'),
 				'@Plugin': path.resolve(__dirname, 'src/plugins/'),

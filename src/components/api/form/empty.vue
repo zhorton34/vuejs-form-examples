@@ -5,11 +5,11 @@
         <input v-model="form.name" placeholder="Name" />
         <input v-model="form.email" placeholder="Email" />
 
-        <button @click="submit">
+        <button :disabled='form.empty()' @click="submit">
             Submit
         </button>
 
-        <live-editor />
+        <live-editor/>
     </form>
 </template>
 
@@ -17,7 +17,7 @@
     import form from 'vuejs-form'
 
     export default {
-        name: 'example-one',
+        name: 'empty',
 
         data: () => ({
             form: form({ name: '', email: '' })

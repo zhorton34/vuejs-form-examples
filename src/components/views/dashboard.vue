@@ -6,14 +6,14 @@
 
         <ul class="flex flex-wrap">
             <li class="w-full m-2" v-for="(example, key) in examples" :key="`example.${key}`"  @click="activate(key)">
-                <a v-if="example.disabled" class="inline-block py-1 px-3 text-gray-400 cursor-not-allowed" :href="`#${example.name.replace(' ', '-')}`">
-                    {{ example.name }}
+                <a v-if="example.disabled" class="inline-block py-1 px-3 text-gray-400 cursor-not-allowed" :href="`#${example.title(' ', '-')}`">
+                    {{ example.title }}
                 </a>
-                <a v-else-if="example.show" :href="`#${example.name.replace(' ', '-')}`" class='inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white'>
-                    {{ example.name }}
+                <a v-else-if="example.show" :href="`#${example.title.replace(' ', '-')}`" class='inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white'>
+                    {{ example.title }}
                 </a>
-                <a v-else-if="!example.show" class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3" :href="`#${example.name.replace(' ', '-')}`">
-                    {{ example.name }}
+                <a v-else-if="!example.show" class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3" :href="`#${example.title.replace(' ', '-')}`">
+                    {{ example.title }}
                 </a>
             </li>
         </ul>
@@ -21,7 +21,7 @@
         <div id="paper">
             <div id="pattern">
                 <div id="content">
-                    {{ showing.name }} Notes
+                    {{ showing.title }} Notes
                     <br/><br/>{{ showing.description }}
                 </div>
             </div>
@@ -32,41 +32,15 @@
 </template>
 
 <script>
-	import ExampleOne from '@Form/one';
-	import ExampleTwo from '@Form/two';
+    const examples = require('@Api/examples.js').default;
 
+    console.log('dash examples: ', examples);
     export default {
         name: 'dashboard-view',
-		data: () => ({
-			examples: [
-				{
-					is: ExampleOne,
-					name: 'Example One',
-					description: `
-					    "Simplest Form Setup"
-
-					    "Use form.all() on submission to collect all form data."
-					`,
-                    code: `form.all();`,
-				},
-				{
-					is: ExampleTwo,
-					name: 'Example Two',
-					description: `
-					    "Similar To Example One"
-
-					    "Use form.all() on submission to collect all form data."
-
-					    "Disable Form Submit Button If Any Fields Are Empty Using Form.empty()"
-					`,
-                    code: `form.empty();`
-				}
-			],
-		}),
+		data: () => ({ examples: [] }),
 
         created() {
-        	window.$created = this;
-        	this.examples = this.examples.map(example => ({
+        	this.examples = examples.map(example => ({
                 ...example,
                 show: false
             }));
