@@ -1,5 +1,4 @@
-// vue config
-const path = require('path')
+const path = require('path');
 
 module.exports = {
 	devServer: {
@@ -8,6 +7,7 @@ module.exports = {
 	configureWebpack: {
 		resolve: {
 			alias: {
+				'vue$': 'vue/dist/vue.common',
 				'@TailwindCSS': path.resolve(__dirname, 'src/assets/css/tailwind.css'),
 				'@View': path.resolve(__dirname, 'src/components/views/'),
 				'@Auth': path.resolve(__dirname, 'src/components/auth/'),
@@ -27,4 +27,4 @@ module.exports = {
 		    chunks: ['chunk-vendors', 'chunk-common', 'index']
 		}
 	}
-}
+};
