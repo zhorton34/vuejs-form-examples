@@ -3,42 +3,68 @@
         <h1 class="ml-6 mb-4 mt-4 text-2xl">Live Form Editor</h1>
 
         <div class="flex flex-wrap">
-            <textarea ref='code' :class="typing ? 'typeme cursor' : ''" class='w-full' rows="2" v-model="expression">{{ expression }}</textarea>
+            <textarea id='type-out' ref='code' class='w-full' rows="2" v-model="expression">{{ expression }}</textarea>
 
             <pre class='code code-js w-full'><label>Output</label><code>{{ output }}</code></pre>
         </div>
-
     </div>
 </template>
 
 <script>
-    export default {
-    	data: () => ({ expression: '', output: '', typing: true }),
-        mounted() {
-            let delay = 2;
-			const speed = [250, 350];
-			let humanize = () => {
-				let [min, max] = speed;
+	import TypeIt from "typeit";
 
-				return parseInt(Math.floor(Math.random()*(min, max) + min));
-			};
+	export default {
+    	data: () => ({
+            paper: null,
+			description: '',
+            content: '',
 
-    		let code = Array.of(this.$parent.$parent.showing.code);
+			expression: '',
+            typeIt: null,
+            output: '',
+    	}),
 
-			let loop = 0;
-
-			while (loop < code.length)
-            {
-            	window.setTimeout(char => {
-            		this.expression = `${this.expression}${code[char]}`;
-				}, humanize(), loop);
-
-				loop = loop + 1;
-			}
-
-			this.$nextTick(() => this.typing = false);
+        created() {
+			this.$root.$on('type', code => this.type(code));
+			this.$root.$on('write', text => this.write(text));
         },
+
+        mounted() {
+    		this.paper = new TypeIt('#content', {
+    			cursor: false,
+                lifeLike: true,
+                html: false,
+
+				afterComplete: async (step, instance) => {
+    				this.$root.$el.querySelector('#content').innerText += this.$parent.$parent.showing.description;
+				}
+            });
+
+    		this.typeIt = new TypeIt('#type-out', {
+				cursorSpeed: 1000,
+    			lifeLike: true,
+                cursor: true,
+                html: false,
+                afterStep: async (step, instance) => {
+					this.expression = this.$el.querySelector('#type-out').value;
+					this.run();
+				}
+            });
+
+			this.$root.$emit('type', this.$parent.$parent.showing.code);
+			this.$root.$emit('write', this.$parent.$parent.showing.title);
+        },
+
         methods: {
+    		write(title) {
+    		    this.paper.type(title, { delay: 250 }).go();
+            },
+            type(code) {
+				document.querySelector('#type-out').value = '';
+
+				this.typeIt.type(code, { delay: 250 }).go();
+            },
+
     		run() {
     			let code = this.expression.replace(/form./g, 'this.form.');
     			let endsWithSemicolon = code[code.length -1] === ';';
@@ -50,19 +76,20 @@
     			if (code.length === 0) {
     				this.output = eval("\"Empty\"");
                 }
-
 			}
         },
+
         watch: {
-    		['$parent.form.data']: {
+    		'expression': {
     			deep: true,
 				handler: 'run',
                 immediate: false,
             },
-    		expression: {
+    		['$parent.form.data']: {
+    			deep: true,
 				handler: 'run',
-				immediate: false,
-            },
+                immediate: false,
+            }
         },
     	computed: {
     		form: $this => $this.$parent.form
