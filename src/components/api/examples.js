@@ -34,11 +34,13 @@ let describe = (lesson) => ({
 });
 
 
-const Form = (method, description) => ({
+const Form = (method, description, live = [], useCases = []) => ({
 	method,
-	is: require(`./form/${method}.vue`).default,
-	code: `form.${method}();`,
+	code: live[0],
+	code_examples: [...live],
+	code_use_cases: [...useCases],
 	title: `${method}() Form Api Example`,
+	is: require(`./form/${method}.vue`).default,
 	description,
 });
 
@@ -48,13 +50,19 @@ const focus = header => {
 	};
 };
 
+const coding = {
+	live: (primary, variations = []) => [primary, ...variations],
+	useCases: (display = []) => [...display],
+};
+
 const examples = [
 	Form('all', focus('form.all()').points([
 			'Get "All" Form Data',
 			'Easily Collect Form Data',
-			'Assists in maintaining reactivity by limiting querying on submit',
-			'axios.get("/store", form.all()).then(response => console.log(response)',
-		])
+			'Assists in maintaining reactivity by limiting querying on submit'
+		]),
+		coding.live('form.all();'),
+		coding.useCases([`axios.get("/store", form.all()).then(response => console.log(response)`]),
 	),
 
 	Form('empty', focus('Form.empty()').points([
@@ -62,10 +70,13 @@ const examples = [
 			'form.empty() is true when all field values are empty',
 			'form.empty("name") is true when name field value is empty',
 			'form.empty("name", "email", "password") is true when the fields passed in are all empty',
-			'Use Case: Disable form submit button while there are empty fields',
-			'<button :disabled="form.empty()">Submit</button>',
-		])
-	)
+			'Use Case: Disable form submit button while there are empty fields'
+		]),
+
+		coding.live('form.empty()', ['form.empty("name")', 'form.empty("name", "email")']),
+		coding.useCases(`<button :disabled="form.empty()">Submit</button>`)
+	),
+
 ].map(build).map(describe);
 
 export default examples;

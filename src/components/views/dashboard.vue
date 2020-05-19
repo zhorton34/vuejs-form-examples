@@ -1,18 +1,10 @@
 <template>
     <div id='app' v-cloak>
-        <div class="flex items-center justify-between flex-wrap shadow-xl mb-6 vue-nav">
-            <img height='150' width='150' :src='logo' />
-        </div>
+        <top-navigation />
 
         <ul class="flex flex-wrap">
-            <li class="w-full m-2" v-for="(example, key) in examples" :key="`example.${key}`"  @click="activate(key)">
-                <a v-if="example.disabled" class="inline-block py-1 px-3 text-gray-400 cursor-not-allowed">
-                    {{ example.title }}
-                </a>
-                <a v-else-if="example.show" class='inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white'>
-                    {{ example.title }}
-                </a>
-                <a v-else-if="!example.show" class="inline-block border border-white rounded hover:border-gray-200 text-blue-500 hover:bg-gray-200 py-1 px-3">
+            <li class="w-full m-2" v-for="(example, key) in examples" :key="`example.${key}`" @click="activate(key)">
+                <a class="inline-block border rounded py-1 px-3" :class="example.show ? 'border-blue-5000 bg-blue-500 text-white' : 'border-white hover:border-gray-200 text-blue-500 hover:bg-gray-200'" style="cursor:pointer" >
                     {{ example.title }}
                 </a>
             </li>
@@ -21,8 +13,7 @@
         <transition name="slide-down">
             <div id="paper" v-if="show.description">
                 <div id="pattern">
-                    <div id="content">
-                        
+                    <div id="content" v-text="showing.description">
                     </div>
                 </div>
             </div>
@@ -32,11 +23,18 @@
 </template>
 
 <script>
+    import TopNavigation from '../sections/top-navigation';
+
     const examples = require('@Api/examples.js').default;
 
     export default {
         name: 'dashboard-view',
-		data: () => ({ examples: [], show: { description: true } }),
+		components: { TopNavigation },
+
+		data: () => ({
+            examples: [],
+            show: { description: true }
+		}),
 
         created() {
         	this.examples = examples.map(example => ({
@@ -46,26 +44,17 @@
 
             this.examples[0].show = true;
         },
+
         computed: {
         	showing: $this => $this.examples.find(({ show }) => show === true),
-			logo: () => 'https://camo.githubusercontent.com/4f5f2a67d153e06cf1420c22aaf228f518b35901/68747470733a2f2f7468756d62732e6766796361742e636f6d2f50696e6b5069657263696e6742756c6c2d73697a655f726573747269637465642e676966'
 		},
 
         watch: {
         	showing: {
         		deep: true,
                 immediate: false,
-                handler({ code, description }) {
-        			this.show.description = false;
-
-        			this.$nextTick(() => {
-						this.show.description = true;
-
-						this.$nextTick(() => {
-					        this.$root.$emit('type', code);
-					        this.$root.$emit('write', description);
-						})
-					});
+                handler({ code }) {
+					this.$root.$emit('type', code);
                 }
             }
         },

@@ -15,10 +15,6 @@
 
 	export default {
     	data: () => ({
-            paper: null,
-			description: '',
-            content: '',
-
 			expression: '',
             typeIt: null,
             output: '',
@@ -26,20 +22,9 @@
 
         created() {
 			this.$root.$on('type', code => this.type(code));
-			this.$root.$on('write', text => this.write(text));
         },
 
         mounted() {
-    		this.paper = new TypeIt('#content', {
-    			cursor: false,
-                lifeLike: true,
-                html: false,
-
-				afterComplete: async (step, instance) => {
-    				this.$root.$el.querySelector('#content').innerText += this.$parent.$parent.showing.description;
-				}
-            });
-
     		this.typeIt = new TypeIt('#type-out', {
 				cursorSpeed: 1000,
     			lifeLike: true,
@@ -52,13 +37,9 @@
             });
 
 			this.$root.$emit('type', this.$parent.$parent.showing.code);
-			this.$root.$emit('write', this.$parent.$parent.showing.title);
         },
 
         methods: {
-    		write(title) {
-    		    this.paper.type(title, { delay: 250 }).go();
-            },
             type(code) {
 				document.querySelector('#type-out').value = '';
 
@@ -79,20 +60,9 @@
 			}
         },
 
-        watch: {
-    		'expression': {
-    			deep: true,
-				handler: 'run',
-                immediate: false,
-            },
-    		['$parent.form.data']: {
-    			deep: true,
-				handler: 'run',
-                immediate: false,
-            }
-        },
     	computed: {
-    		form: $this => $this.$parent.form
+    		form: $this => $this.$parent.form,
+            showing: $this => $this.$parent.$parent.showing
 		},
     }
 </script>

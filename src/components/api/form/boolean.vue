@@ -3,7 +3,8 @@
         <h1>{{ title }}</h1>
 
         <input v-model="form.name" placeholder="Name" />
-        <input v-model="form.terms" />
+
+        <input type='checkbox' v-model="form.terms_of_service" />
 
         <button :disabled='form.empty()' @click="submit">
             Submit
