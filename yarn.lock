@@ -1675,9 +1675,9 @@ bluebird@^3.1.1, bluebird@^3.5.5:
   integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
 
 bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.4.0:
-  version "4.11.8"
-  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.8.tgz#2cde09eb5ee341f484746bb0309b3253b1b1442f"
-  integrity sha512-ItfYfPLkWHUjckQCk8xC+LwxgK8NYcXywGigJgSwOP8Y2iyWT4f2vsZnoOXTTbo+o5yXmIUJ4gn5538SO5S3gA==
+  version "4.11.9"
+  resolved "https://registry.yarnpkg.com/bn.js/-/bn.js-4.11.9.tgz#26d556829458f9d1e81fc48952493d0ba3507828"
+  integrity sha512-E6QoYqCKZfgatHTdHzs1RRKP7ip4vvm+EyRUeE2RF0NblwVvb0p6jSVeNTOFxPn26QXN2o6SMfNxKp6kU8zQaw==
 
 bn.js@^5.1.1:
   version "5.1.1"
@@ -3011,9 +3011,9 @@ electron-to-chromium@^1.3.413:
   integrity sha512-leBfJwLuyGs1jEei2QioI+PjVMavmUIvPYidE8dCCYWLAq0uefhN3NYgDNb8WxD3uiUNnJ3ScMXg0upSlwySzQ==
 
 elliptic@^6.0.0, elliptic@^6.5.2:
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.2.tgz#05c5678d7173c049d8ca433552224a495d0e3762"
-  integrity sha512-f4x70okzZbIQl/NSRLkI/+tteV/9WqL98zx+SQ69KbXxmVrmjwsNUPn/gYJJ0sHvEak24cZgHIPegRePAtA/xw==
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.5.3.tgz#cb59eb2efdaf73a0bd78ccd7015a62ad6e0f93d6"
+  integrity sha512-IMqzv5wNQf+E6aHeIqATs0tOLeOTwj1QKbRcS3jBbYkl5oLAserA8yJTT7/VyHUYG91PRmPyeQDObKLPpeS4dw==
   dependencies:
     bn.js "^4.4.0"
     brorand "^1.0.1"
@@ -7403,6 +7403,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeit@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/typeit/-/typeit-7.0.4.tgz#7b42886943f6e0545c4d8eab4ef552a71388751c"
+  integrity sha512-ETiVr3s4XOXUE9W+tVhF3gxGTf5z4tc35YjvWEQhqKsJhXWvpQlt/D/ZvIHkZzHegU3stxagjeG2pfm1/AWsYQ==
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
@@ -7695,15 +7700,15 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuejs-form@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vuejs-form/-/vuejs-form-1.2.0.tgz#e6345d838964feaab620cf2781432dcd9dfa0059"
-  integrity sha512-aCdvkhiZX4q5DV6EmwE5PDqMaCMDv6+GU6//pBJBzFlpSLR6rRVl7tdyCozsiSnVSesZQZTKvQ5fFAV2NkcY5w==
+vuejs-form@^1.2.*:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/vuejs-form/-/vuejs-form-1.2.9.tgz#abae96810892117265b09084bdf07a4b8ea743c2"
+  integrity sha512-S+K8vUj+Y0+OLpubcXP2V9Py7iUBJOhg7Xbne7hZz0898nv4uArwMlYSpTv1Wy1PK1DBd2nIFXCepQXnQo7/hQ==
 
-vuejs-validators@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/vuejs-validators/-/vuejs-validators-1.1.4.tgz#bb6e6fce8a6a8a3c5754a92281d958b0e17da2f0"
-  integrity sha512-MqOSW6BrE1/cqQeIxcf74xeL6gfVtgYYsvszAsXhgy5yS4duYdYGXLXnLzVDY8d77uQMHtpDGrUj/Lf3njCbBw==
+vuejs-validators@^1.1.*:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vuejs-validators/-/vuejs-validators-1.1.7.tgz#0e08da06ab32cd5e118d9cd51e8446742ee1d19c"
+  integrity sha512-ReczO8u0tqxumF3AMwJLqLGTDMLeo0NlCl6gs6Pfv5NQUfVwMnwQ8zwBQW67Ro2yRVsUqERIfr0kBh30gBATjQ==
 
 vuep@^0.8.1:
   version "0.8.1"
