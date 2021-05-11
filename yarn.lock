@@ -4698,9 +4698,9 @@ lodash.uniq@^4.5.0:
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
 lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.3:
-  version "4.17.15"
-  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
-  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
   version "2.2.0"
@@ -7403,6 +7403,11 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeit@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/typeit/-/typeit-7.0.4.tgz#7b42886943f6e0545c4d8eab4ef552a71388751c"
+  integrity sha512-ETiVr3s4XOXUE9W+tVhF3gxGTf5z4tc35YjvWEQhqKsJhXWvpQlt/D/ZvIHkZzHegU3stxagjeG2pfm1/AWsYQ==
+
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
@@ -7695,15 +7700,15 @@ vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
 
-vuejs-form@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vuejs-form/-/vuejs-form-1.2.0.tgz#e6345d838964feaab620cf2781432dcd9dfa0059"
-  integrity sha512-aCdvkhiZX4q5DV6EmwE5PDqMaCMDv6+GU6//pBJBzFlpSLR6rRVl7tdyCozsiSnVSesZQZTKvQ5fFAV2NkcY5w==
+vuejs-form@^1.2.*:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/vuejs-form/-/vuejs-form-1.2.9.tgz#abae96810892117265b09084bdf07a4b8ea743c2"
+  integrity sha512-S+K8vUj+Y0+OLpubcXP2V9Py7iUBJOhg7Xbne7hZz0898nv4uArwMlYSpTv1Wy1PK1DBd2nIFXCepQXnQo7/hQ==
 
-vuejs-validators@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/vuejs-validators/-/vuejs-validators-1.1.4.tgz#bb6e6fce8a6a8a3c5754a92281d958b0e17da2f0"
-  integrity sha512-MqOSW6BrE1/cqQeIxcf74xeL6gfVtgYYsvszAsXhgy5yS4duYdYGXLXnLzVDY8d77uQMHtpDGrUj/Lf3njCbBw==
+vuejs-validators@^1.1.*:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/vuejs-validators/-/vuejs-validators-1.1.7.tgz#0e08da06ab32cd5e118d9cd51e8446742ee1d19c"
+  integrity sha512-ReczO8u0tqxumF3AMwJLqLGTDMLeo0NlCl6gs6Pfv5NQUfVwMnwQ8zwBQW67Ro2yRVsUqERIfr0kBh30gBATjQ==
 
 vuep@^0.8.1:
   version "0.8.1"
