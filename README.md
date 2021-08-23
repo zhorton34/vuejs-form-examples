@@ -1,3 +1,5 @@
+[![Twitter Follow](https://img.shields.io/twitter/follow/cleancodestudio.svg?style=social)](https://twitter.com/cleancodestudio) 
+
 # vue-api-docs
 
 ## Project setup
